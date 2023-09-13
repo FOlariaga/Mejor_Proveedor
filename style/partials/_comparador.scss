@@ -1,0 +1,151 @@
+main {
+
+    .comparador {
+        width: 65%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+
+        .procesos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+
+            .ingresoDeDatos {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .primerDato {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 10px;
+
+                    .titleProducto {
+                        width: 350px;
+                        background-color: #161616;
+                        padding: 5px;
+                        border-radius: 30px;
+                        display: flex;
+                        justify-content: center;
+
+                        h2 {
+                            color: #ffffff;
+                            font-size: 1.5rem;
+                            font-weight: 500;
+                        }
+                    }
+
+                    .ingresoDelProducto {
+
+                        input {
+                            width: 250px;
+                            background-color: #b5bfa1;
+                            border: 0px;
+                            border-bottom: 3px #161616 solid;
+
+                        }
+                    }
+                }
+
+                .segundoDato {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 10px;
+
+                    .titleProveedores {
+                        width: 350px;
+                        background-color: #161616;
+                        padding: 5px;
+                        border-radius: 30px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        h2 {
+                            color: #ffffff;
+                            font-size: 1.5rem;
+                            font-weight: 500;
+                        }
+
+                        button {
+                            width: 30px;
+                            border-radius: 10px;
+                            margin-inline: 10px;
+                        }
+
+                    }
+
+                    .proveedorPrecio {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 1rem;
+
+                        table {
+                            thead {
+                                background-color: #143109;
+                                color: #ffffff;
+                                
+                                th{
+                                    border: 1px solid #16161691;
+                                }
+                            }
+                            tbody{
+                                td{
+                                    border: #16161691 1px solid;
+                                }
+                            }
+
+                        }
+
+                        button {
+                            border-radius: 10px;
+                            padding: 5px;
+                        }
+
+                    }
+                }
+
+            }
+
+            .muestraresultado {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+
+                .titleMejorProveedor {
+                    width: 350px;
+                    background-color: #161616;
+                    padding: 5px;
+                    border-radius: 30px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    h2 {
+                        color: #ffffff;
+                        font-size: 1.5rem;
+                        font-weight: 500;
+                    }
+                }
+
+                .tarjetasResultado {
+                    width: 250px;
+                    background-color: #143109;
+                    padding: 10px;
+                    border-radius: 10px;
+
+                    p {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+}

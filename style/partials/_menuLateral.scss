@@ -1,0 +1,29 @@
+main {
+    background-color: #b5bfa1;
+    display: flex;
+
+    .menuLateral {
+        background-color: #143109;
+        width: 35%;
+        height: 100vh;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .titlePrincipal {
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+
+            h1 {
+                color: #ffffff;
+                font-size: 3rem;
+                text-align: center;
+            }
+        }
+    }
+}

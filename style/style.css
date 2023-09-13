@@ -1,0 +1,154 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+img {
+  width: 100%;
+}
+
+main {
+  background-color: #b5bfa1;
+  display: flex;
+}
+main .menuLateral {
+  background-color: #143109;
+  width: 35%;
+  height: 100vh;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main .menuLateral .titlePrincipal {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+main .menuLateral .titlePrincipal h1 {
+  color: #ffffff;
+  font-size: 3rem;
+  text-align: center;
+}
+
+main .comparador {
+  width: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .comparador .procesos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+main .comparador .procesos .ingresoDeDatos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+main .comparador .procesos .ingresoDeDatos .primerDato {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+main .comparador .procesos .ingresoDeDatos .primerDato .titleProducto {
+  width: 350px;
+  background-color: #161616;
+  padding: 5px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+}
+main .comparador .procesos .ingresoDeDatos .primerDato .titleProducto h2 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+main .comparador .procesos .ingresoDeDatos .primerDato .ingresoDelProducto input {
+  width: 250px;
+  background-color: #b5bfa1;
+  border: 0px;
+  border-bottom: 3px #161616 solid;
+}
+main .comparador .procesos .ingresoDeDatos .segundoDato {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+main .comparador .procesos .ingresoDeDatos .segundoDato .titleProveedores {
+  width: 350px;
+  background-color: #161616;
+  padding: 5px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+main .comparador .procesos .ingresoDeDatos .segundoDato .titleProveedores h2 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+main .comparador .procesos .ingresoDeDatos .segundoDato .titleProveedores button {
+  width: 30px;
+  border-radius: 10px;
+  margin-inline: 10px;
+}
+main .comparador .procesos .ingresoDeDatos .segundoDato .proveedorPrecio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+main .comparador .procesos .ingresoDeDatos .segundoDato .proveedorPrecio table thead {
+  background-color: #143109;
+  color: #ffffff;
+}
+main .comparador .procesos .ingresoDeDatos .segundoDato .proveedorPrecio table thead th {
+  border: 1px solid rgba(22, 22, 22, 0.568627451);
+}
+main .comparador .procesos .ingresoDeDatos .segundoDato .proveedorPrecio table tbody td {
+  border: rgba(22, 22, 22, 0.568627451) 1px solid;
+}
+main .comparador .procesos .ingresoDeDatos .segundoDato .proveedorPrecio button {
+  border-radius: 10px;
+  padding: 5px;
+}
+main .comparador .procesos .muestraresultado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+main .comparador .procesos .muestraresultado .titleMejorProveedor {
+  width: 350px;
+  background-color: #161616;
+  padding: 5px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .comparador .procesos .muestraresultado .titleMejorProveedor h2 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+main .comparador .procesos .muestraresultado .tarjetasResultado {
+  width: 250px;
+  background-color: #143109;
+  padding: 10px;
+  border-radius: 10px;
+}
+main .comparador .procesos .muestraresultado .tarjetasResultado p {
+  color: #ffffff;
+}/*# sourceMappingURL=style.css.map */
