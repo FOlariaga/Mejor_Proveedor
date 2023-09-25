@@ -1,8 +1,8 @@
 # Mejor Proveedor
-el proposito de este proyecto es comparar el precio que tiene un producto entre distintos proveedores, en un principio no hay limites para la cantidad de proveedores pero la idea es ir mejorando el proyecto para poder aumentar la cantidad de productos que se puede comparar y no que se haga de uno en uno.
+el proposito de este proyecto es comparar el precio que tiene un producto entre distintos proveedores, en un principio no hay limites para la cantidad de proveedores y con la implementacion de arrays y objetos ya no hay limites para la cantidad de productos.
 
-En lineas generales se determina la cantidad de proveedores para poder repetir la cantidad de veces que el bucle debe preguntar el precio.
+En lineas generales se determina la cantidad de proveedores para posteriormente ir agregando TODOS los productos de ese proveedor (una vez confirmado que no desea agregar mas productos de un proveedor no se podra agregar mas productos para dicho proveedor).
 
-El primer precio se determinara autometicamente como la mejor opcion de compra ya que es la unica hasta el momento, luego de ingresar el segundo precio se compara con el mejor precio del momento para determinar si es mayor o menos que el, en el caso de ser menor se pregunta el nombre de ese proveedor para poder asignarlo como el nuevo mejor precio y en caso contrario se descartara directamente pasando a preguntar un precio nuevo hasta llegar al limite de proveedores.
+una vez cargados todos los productos de todos los proveedores se empieza a recorrer proveedor por provedor, producto por producto, el primer proveedor casi automaticamente se agregara a un array con las "mejores opciones" de compra, una vez llegado al segundo proveedor en adelante se verifica si ese producto ya se encuentra en el array con las "mejores opciones", en caso de no estar se hace un push para incluir ese producto, en caso de que si este se verifica el de menor precio para que sea el que se quede en el mismo y descartando al otro.
 
-luego de ello se ejecuta un alert para informar cual es el proveedor con el producto al precio mas barato para posteriormente preguntar si se quiere repetir el proceso con otro producto.
+Una vez terminada todas las comparaciones y teniendo un array con todos los productos al menor precio entre los proveedores se recorre con un forEach para ejecutar el metodo que se encuentra en el objeto, mostrando en la consola un mensaje con las mejores opciones.
