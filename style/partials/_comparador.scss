@@ -1,17 +1,17 @@
 main {
 
     .comparador {
-        width: 65%;
+        width: 35%;
         display: flex;
-        align-items: center;
         justify-content: center;
-        
+
 
         .procesos {
+            margin-top: 75px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
 
             .ingresoDeDatos {
                 display: flex;
@@ -24,7 +24,7 @@ main {
                     align-items: center;
                     gap: 10px;
 
-                    .titleProducto {
+                    .titleProveedor {
                         width: 350px;
                         background-color: #161616;
                         padding: 5px;
@@ -39,7 +39,7 @@ main {
                         }
                     }
 
-                    .ingresoDelProducto {
+                    .ingresoDelProveedor {
 
                         input {
                             width: 250px;
@@ -58,7 +58,7 @@ main {
                     align-items: center;
                     gap: 10px;
 
-                    .titleProveedores {
+                    .titleProductos {
                         width: 350px;
                         background-color: #161616;
                         padding: 5px;
@@ -81,7 +81,7 @@ main {
 
                     }
 
-                    .proveedorPrecio {
+                    .productoPrecio {
                         display: flex;
                         flex-direction: column;
                         align-items: center;
@@ -91,38 +91,48 @@ main {
                             thead {
                                 background-color: #143109;
                                 color: #ffffff;
-                                
-                                th{
+
+                                th {
                                     border: 1px solid #16161691;
                                 }
                             }
-                            tbody{
-                                td{
-                                    border: #16161691 1px solid;
+
+                            tbody {
+                                td {
+
+                                    input[type=number]::-webkit-inner-spin-button,
+                                    input[type=number]::-webkit-outer-spin-button {
+                                        -webkit-appearance: none;
+                                        margin: 0;
+                                    }
+
+                                    input[type=number] {
+                                        -moz-appearance: textfield;
+                                    }
                                 }
                             }
-
                         }
 
-                        button {
+                        #CARGAR_DATOS {
                             border-radius: 10px;
                             padding: 5px;
+                            background-color: #143109;
+                            color: #b5bfa1;
                         }
-
                     }
                 }
 
             }
 
-            .muestraresultado {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
+            .faltaDeDatos {
+                border-radius: 15px;
+                background-color: #9da58c;
+                padding: 1rem;
 
-                .titleMejorProveedor {
+                .titleFaltaDeDatos {
                     width: 350px;
                     background-color: #161616;
+                    color: #ffffff;
                     padding: 5px;
                     border-radius: 30px;
                     display: flex;
@@ -136,14 +146,34 @@ main {
                     }
                 }
 
-                .tarjetasResultado {
-                    width: 250px;
-                    background-color: #143109;
-                    padding: 10px;
-                    border-radius: 10px;
+                .DatosDescartados {
+                    min-height: 200px;
 
-                    p {
-                        color: #ffffff;
+                    .ListaDeDescartados {
+                        
+                        li {
+                            width: 300px;
+                            margin-inline-start: 1rem;
+                            padding: 5px;
+
+                            span {
+                                font-weight: 600;
+                            }
+                        }
+                        li:nth-child(1){
+                            border-top-right-radius: 10px;
+                            border-top-left-radius: 10px;
+                        }
+                        li:nth-child(odd){
+                            background-color: #e4d4d4;
+                        }
+                        li:nth-child(even){
+                            background-color: #d1bbbb;
+                        }
+                        li:nth-last-child(1){
+                            border-bottom-left-radius: 10px;
+                            border-bottom-right-radius: 10px;
+                        }
                     }
                 }
             }

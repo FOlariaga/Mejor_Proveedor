@@ -1,0 +1,25 @@
+.alerta{
+    display: flex;
+    // flex-direction: column;
+    position: absolute;
+    background-color: rgb(238, 143, 143);
+    color: rgb(68, 5, 5);
+    border-radius: 15px;
+    border: solid red 1px;
+    width: 175px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 400;
+
+    #cruz1, #cruz2{
+        width: 20px;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+}
+.rellenar{
+    
+    background-color: rgb(233, 120, 120);
+}
+

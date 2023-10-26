@@ -1,115 +1,265 @@
-// funcion constructora que se encarga de guardar los datos de cada producto
+// funcion constructora que se encarga de guardar los datos de cada producto.
 function Producto(proveedor, nombre, precio) {
     this.proveedor = proveedor;
     this.nombre = nombre;
     this.precio = precio;
-    this.mensaje = function () { console.log("La mejor opcion para comprar " + nombre + " es tu proveedor " + proveedor + " a un precio de $" + precio) }
 }
 
-// declaracion de variables globales
-let proveedores = []
-let mejorProveedor = [{ nombre: "" }]
-let otroProducto
-
-const CANTIDAD_DE_PROVEEDORES = parseInt(prompt("ingrese la cantidad de proveedores"))
-
-if (CANTIDAD_DE_PROVEEDORES.toString() == "NaN" || CANTIDAD_DE_PROVEEDORES < 1) {
-    alert("Debe ingresar un numero valido mayor a 0")
+//se agrega el provedor a la lista de proveedores cargados con la cantidad de productos.
+const AGREGAR_LI = (proveedor, cantidadDeProductos) => {
+    let li = document.createElement("li")
+    let listaDeProveedores = document.querySelector(".listaDeProveedores")
+    li.innerHTML = `<span>"${proveedor}"</span> se cargo con ${cantidadDeProductos} productos`
+    listaDeProveedores.append(li)
 }
 
-// recoleccion y almacenamiento de datos en arrays
-for (let i = 1; i <= CANTIDAD_DE_PROVEEDORES; i++) {
+// vaciar el localStorage y eliminar proveedores cargados de la lista
+const VACIAR_LI = () => {
+    let listaDeProveedores = document.querySelector(".listaDeProveedores")
+    let faltaDeDatos = document.querySelector(".ListaDeDescartados")
+    let mejoresOpciones = document.querySelector(".listaMejoresOpciones")
+    listaDeProveedores.innerHTML = ""
+    faltaDeDatos.innerHTML = ""
+    mejoresOpciones.innerHTML = ""
+    localStorage.clear()
+    mejorProveedor = [{ nombre: "" }]
+}
 
-    //declaracion de variables locales
-    let productos = []
-    let proveedor = prompt("ingrese el nombre de su proveedor numero " + i).trim()
+//si hay elementos en el localstorage reflejalos en la lista de proveedores cargados
+const recuperaElementoLS = () => {
+    for (let i = 0; i < localStorage.length; i++) {
+        let clave = localStorage.key(i)
+        let productoLS = JSON.parse(localStorage.getItem(clave))
+        AGREGAR_LI(productoLS[0].proveedor, productoLS.length)
+    }
+}
 
-    do {
-        let producto = prompt("ingrese el nombre del producto").trim()
+//cargar datos en caso de encontrarse en el localStorage
+recuperaElementoLS()
 
-        let precio = parseFloat(prompt("ingrese el precio de: " + producto + "\n( ingrese el precio sin el simbolo ¨$¨ y un (punto) para seprar centavos )"))
+const LIMPIAR_RESULTADOS = () => {
+    let faltaDeDatos = document.querySelector(".ListaDeDescartados")
+    let mejoresOpciones = document.querySelector(".listaMejoresOpciones")
+    faltaDeDatos.innerHTML = ""
+    mejoresOpciones.innerHTML = ""
+}
 
-        const PRODUCTO = new Producto(proveedor, producto, precio)
+//agrega a la lista "falta de datos" un mensaje de que falta el nombre en uno de los productos
+const PRODUCTO_SIN_NOMBRE = (e) =>{
+    let li = document.createElement("li")
+    let faltaDeDatos = document.querySelector(".ListaDeDescartados")
+    li.innerHTML = `se agrego un producto sin nombre para el proveedor "<span>${e.proveedor}</span>"`
+    faltaDeDatos.append(li)
+}
 
-        productos.push(PRODUCTO)
+//agrega a la lista "falta de datos" un mensaje de que uno de los productos no tiene un precio definido
+const PRODUCTO_SIN_PRECIO = (e) =>{
+    let li = document.createElement("li")
+    let faltaDeDatos = document.querySelector(".ListaDeDescartados")
+    li.innerHTML = `El producto "<span>${e.nombre}</span>" del proveedor "<span>${e.proveedor}</span>" no tiene un precio definido`
+    faltaDeDatos.append(li)
+}
 
-        otroProducto = prompt("¿Quiere agregar otro producto al proveedor " + proveedor + "?" + "\n (ingrese ¨si¨ en caso de querer agregar otro producto)").toUpperCase().trim()
+// agrega a la lista "Mejores Opciones" un mensaje de la alternativa mas barata de un producto con su respectivo proveedor y precio
+const MOSTRAR_RESULTADOS = (e) => {
+    let li = document.createElement("li")
+    let mejoresOpciones = document.querySelector(".listaMejoresOpciones")
+    li.innerHTML = `El producto "<span>${e.nombre}</span>" lo tiene mas barato el proveedor "<span>${e.proveedor}</span>" a un precio de "$<span>${e.precio}</span>"`
+    mejoresOpciones.append(li)
+}
 
-        switch (otroProducto) {
-            case "SI":
-                otroProducto = true
-                break;
+//reflejar resultados en el dom
+const LISTAR_RESULTADOS = (array) => {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].nombre == "") {
+            PRODUCTO_SIN_NOMBRE(array[i])
+        } else if (array[i].precio == null) {
+            PRODUCTO_SIN_PRECIO(array[i])
+        } else{
+            MOSTRAR_RESULTADOS(array[i])
+        }
+    }
+}
 
-            default:
-                otroProducto = false
-                break;
+
+// se eliminan inputs para ajustar segun la cantidad de productos por proveedor.
+let eliminarProducto = document.getElementById("ELIMINAR_PRODUCTO")
+let productosTotales = 3
+let alerta1 = false
+
+eliminarProducto.addEventListener("click", () => {
+    if (alerta1) {
+        //si la alerta esta presente reflejara un "true" por lo que no se eliminara el input y no se generan mas alertas de este tipo.
+    } else if (productosTotales <= 1) {
+        //si se quiere eliminar el ultimo input de los productos no se ejecutara y mostrara una alerta cambiando su valor a "true".
+        let noQuitarMas = document.createElement("div")
+        noQuitarMas.innerHTML = `
+        <img id ="cruz1" src="https://cdn-icons-png.flaticon.com/512/7269/7269138.png" alt="x">
+            <p>no debes tener menos de 1 producto por proveedor</p>`
+        noQuitarMas.className = "alerta"
+        document.querySelector(".productoPrecio").append(noQuitarMas)
+        alerta1 = true
+
+        //se agrega el evento a la cruz de la alerta la cual la eliminara y cambiara su valor a "false".
+        let cruz = document.getElementById("cruz1")
+        cruz.addEventListener("click", () => {
+            noQuitarMas.remove()
+            alerta1 = false
+        })
+    } else {
+        // si no hay una alerta presente y no es el ultimo input que queda, se eliminara el ultimo input de la columna
+        let tr = document.getElementsByTagName("tr")
+        cantidadTr = tr.length - 1
+        tr[cantidadTr].remove()
+        productosTotales = productosTotales - 1
+    }
+})
+
+//se agregan inputs para ajustar segun la cantidad de productos por proveedor
+let agregarProducto = document.getElementById("AGREGAR_PRODUCTO")
+agregarProducto.addEventListener("click", () => {
+    let addInputs = document.createElement("tr")
+    addInputs.innerHTML = `<td><input class="ingresoProducto" type="text" placeholder="producto"></td>
+    <td><input class="ingresoPrecio" type="number" placeholder="$ Precio"></td>`
+    document.querySelector("tbody").append(addInputs)
+    productosTotales = productosTotales + 1
+})
+
+
+//guardar productos en un array de objetos en el localstorage.
+
+let productos = []
+let productoInput = document.getElementsByClassName("ingresoProducto");
+let precioInput = document.getElementsByClassName("ingresoPrecio");
+let proveedor = document.getElementById("NOMBRE_DEL_PROVEEDOR")
+let CARGAR_DATOS = document.getElementById("CARGAR_DATOS")
+let alerta2 = false
+CARGAR_DATOS.addEventListener("click", () => {
+
+    if (alerta2) {
+        //si no se elimina la alerta no se cargaran datos ni generaran nuevas alertas de este tipo.
+    } else if (proveedor.value == "") {
+        //en el caso de no ingresar proveedor se mostrara una alerta cambiando su valor a "true" impidiendo que se ejecute la carga de datos.
+        let sinProveedor = document.createElement("div")
+        sinProveedor.innerHTML = `
+            <img id= "cruz2" src="https://cdn-icons-png.flaticon.com/512/7269/7269138.png" alt="x">
+            <p>debes ingresar el nombre del proveedor</p>`
+        sinProveedor.className = "alerta"
+        document.querySelector(".primerDato").append(sinProveedor)
+        alerta2 = true
+
+        //se agrega el evento a la cruz de la alerta la cual la eliminara y cambiara su valor a "false".
+        let cruz = document.getElementById("cruz2")
+        cruz.addEventListener("click", () => {
+            sinProveedor.remove()
+            alerta2 = false
+        })
+
+    } else {
+        //si se ingresaron los datos requeridos y no hay alertas presentes se tomaran los datos almacenandolos en el localstorage.
+        for (let i = 0; i < productosTotales; i++) {
+            const PRODUCTO = new Producto(proveedor.value, productoInput[i].value, parseFloat(precioInput[i].value));
+            productos.push(PRODUCTO);
         }
 
-    } while (otroProducto);
+        //llama la funcion para agregar elementos a la lista de proveedores cargados
+        AGREGAR_LI(proveedor.value, productosTotales)
 
-    //una vez que se ingresan todos los productos de un mismo proveedor se hace un push de ese array para dar lugar a un nuevo proveedor.
-    proveedores.push(productos)
-}
+        //se realiza un stringify del array de objetos para agregarlo al localStorage
+        let productosJSON = JSON.stringify(productos)
+        localStorage.setItem(`${proveedor.value}`, productosJSON)
 
-//comprobacion de existencia de un mismo producto y eleccion del producto mas barato en comparacion
-for (let prov = 0; prov < proveedores.length; prov++) {
+        //reseteo de la variable para evitar duplicados
+        productos = []
+    }
+})
 
-    for (let producto = 0; producto < proveedores[prov].length; producto++) {
+//boton "Borrar Proveedores" elimina la lista de proveedores cargados y limpia el localStorage
+const BORRAR_PROVEEDORES = document.getElementById("BORRAR_PROVEEDORES")
+BORRAR_PROVEEDORES.addEventListener("click", () => {
+    VACIAR_LI()
+})
 
-        for (let i = 0; i < mejorProveedor.length; i++) {
 
-            let nombre1 = mejorProveedor[i].nombre
-            let nombre2 = proveedores[prov][producto].nombre
+//extraer datos del localStorage y compararlos
+let mejorProveedor = [{ nombre: "" }]
+let productoIncompleto = []
+const CALCULAR = document.getElementById("CALCULAR")
+CALCULAR.addEventListener("click", () => {
 
-            // se verifica que sea el ultimo elemento del array y en caso de no hallar coincidencia se hace el push
-            if (i === mejorProveedor.length - 1) {
+    LIMPIAR_RESULTADOS()
 
-                // se busca coincidencia en el nombre de lo productos para comparar sus precios.
-                if (nombre1.toUpperCase() === nombre2.toUpperCase()) {
+    //resetear las variables para no duplicar su contenido
+    mejorProveedor = [{ nombre: "" }]
+    productoIncompleto = []
 
-                    // se verifica si el proveedor nuevo o el ya existente tiene ese producto a un menor precio.
-                    if (mejorProveedor[i].precio < proveedores[prov][producto].precio) {
-                        break;
-                    }
-                    // si el proveedor nuevo tiene el precio mas barato para ese producto se elimina el ya existente del array y se agrega al nuevo.
-                    else if (mejorProveedor[i].precio > proveedores[prov][producto].precio) {
-                        mejorProveedor.splice(i, 1);
-                        mejorProveedor.push(proveedores[prov][producto])
-                        break;
-                    }
 
-                    // este producto no se encuentra asi que de momento es el unico proveedor que cuenta con este producto por lo que se debe agregar.
-                } else {
-                    mejorProveedor.push(proveedores[prov][producto])
+    //Extraer datos del localStorage
+    for (let LS = 0; LS < localStorage.length; LS++) {
+        let clave = localStorage.key(LS)
+        let productoRecuperado = JSON.parse(localStorage.getItem(clave))
+
+        //recorrer los elementos extraidos del lcalStorage
+        for (let obj = 0; obj < productoRecuperado.length; obj++) {
+            
+            //recorrer la variable que almacena las "mejores opciones" para poder comparar con lo extraido del localStrage
+            for (let i = 0; i < mejorProveedor.length; i++) {
+                let nombre1 = mejorProveedor[i].nombre
+                let nombre2 = productoRecuperado[obj].nombre
+
+                //verificar que no los productos tengan precio y nombre
+                if (productoRecuperado[obj].nombre == "") {
+                    productoIncompleto.push(productoRecuperado[obj])
                     break;
-                }
-            }
+                } else if (productoRecuperado[obj].precio === null) {
+                    productoIncompleto.push(productoRecuperado[obj])
+                    break;
 
+                //verificar si es el ultimo producto del array "mejorProveedor" para pushear si no hay coincidencia
+                } else if (mejorProveedor.length - 1 === i) {
 
-            // no es el ultimo elemento de array asi que no se deberia hacer un push hasta verificar si se encuentra entre los demas elementos.
-            else {
+                    //verificar si es el mismo producto
+                    if (nombre1.toUpperCase() === nombre2.toUpperCase()) {
 
-                if (nombre1.toUpperCase() === nombre2.toUpperCase()) {
+                        //si ya se encuentra ese producto se compara los precios para guardar la opcion mas economica y descartar el mas caro
+                        if (mejorProveedor[i].precio === productoRecuperado[obj].precio) {
+                            break;
+                        } else if (mejorProveedor[i].precio < productoRecuperado[obj].precio) {
+                            break;
+                        } else if (mejorProveedor[i].precio > productoRecuperado[obj].precio) {
+                            mejorProveedor.splice(i, 1);
+                            mejorProveedor.push(productoRecuperado[obj])
+                            break;
+                        }
 
-                    if (mejorProveedor[i].precio < proveedores[prov][producto].precio) {
+                        //se hace un push por compararse con todos los productos y no encontrarse en coincidencia
+                    } else {
+                        mejorProveedor.push(productoRecuperado[obj])
                         break;
                     }
-                    else if (mejorProveedor[i].precio > proveedores[prov][producto].precio) {
-                        mejorProveedor.splice(i, 1);
-                        mejorProveedor.push(proveedores[prov][producto])
-                        break;
+                } else {
+
+                    //mismo proceso de arriba con la diferencia de que no se hara el push en caso de no encontrarse coincidencia de productos
+                    if (nombre1.toUpperCase() === nombre2.toUpperCase()) {
+
+                        if (mejorProveedor[i].precio === productoRecuperado[obj].precio) {
+                            break;
+                        } else if (mejorProveedor[i].precio < productoRecuperado[obj].precio) {
+                            break;
+                        }
+                        else if (mejorProveedor[i].precio > productoRecuperado[obj].precio) {
+                            mejorProveedor.splice(i, 1);
+                            mejorProveedor.push(productoRecuperado[obj])
+                            break;
+                        }
                     }
                 }
             }
         }
     }
-}
-
-//elimina el primer elemento que se declaro en la linea 11 de codigo
-mejorProveedor.shift()
-
-//muestra en la consola el array resultante con las mejores opciones de cada producto
-console.log(mejorProveedor)
-
-//recorre el array con los mejores productos para ejecutar el metodo "mensaje"
-mejorProveedor.forEach((x) => {x.mensaje()})
+    mejorProveedor.shift()
+    
+    //reflejar resultados en el dom con llamado a las funciones
+        LISTAR_RESULTADOS(productoIncompleto)
+        LISTAR_RESULTADOS(mejorProveedor)
+})

@@ -25,57 +25,82 @@
             <div class="procesos">
                 <div class="ingresoDeDatos">
                     <div class="primerDato">
-                        <div class="titleProducto">
-                            <h2>Producto</h2>
+                        <div class="titleProveedor">
+                            <h2>Proveedor</h2>
                         </div>
-                        <div class="ingresoDelProducto">
-                            <input type="text" name="Ingrese el nombre del producto que desea comparar"
-                                id="NOMBRE_DEL_PRODUCTO" placeholder="Ingrese su producto aqui">
+                        <div class="ingresoDelProveedor">
+                            <input type="text" name="Ingrese el nombre del proveedor que desea comparar"
+                                id="NOMBRE_DEL_PROVEEDOR" placeholder="Ingrese su proveedor aqui">
                         </div>
                     </div>
                     <div class="segundoDato">
-                        <div class="titleProveedores">
-                            <button id="ELIMINAR_PROVEEDOR">-</button>
-                            <h2>Proveedores</h2>
-                            <button id="AGREGAR_PROVEEDOR">+</button>
+                        <div class="titleProductos">
+                            <button id="ELIMINAR_PRODUCTO">-</button>
+                            <h2>Productos</h2>
+                            <button id="AGREGAR_PRODUCTO">+</button>
                         </div>
-                        <div class="proveedorPrecio">
+                        <div class="productoPrecio">
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>Proveedor</th>
+                                        <th>Producto</th>
                                         <th>Precio</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><input type="text" placeholder="proveedor 1"></td>
-                                        <td><input type="text" placeholder="$ Precio"></td>
+                                        <td><input class="ingresoProducto" type="text" placeholder="producto"></td>
+                                        <td><input class="ingresoPrecio" type="number" placeholder="$ Precio"></td>
                                     </tr>
                                     <tr>
-                                        <td><input type="text" placeholder="proveedor 2"></td>
-                                        <td><input type="text" placeholder="$ Precio"></td>
+                                        <td><input class="ingresoProducto" type="text" placeholder="producto"></td>
+                                        <td><input class="ingresoPrecio" type="number" placeholder="$ Precio"></td>
                                     </tr>
                                     <tr>
-                                        <td><input type="text" placeholder="proveedor 3"></td>
-                                        <td><input type="text" placeholder="$ Precio"></td>
+                                        <td><input class="ingresoProducto" type="text" placeholder="producto"></td>
+                                        <td><input class="ingresoPrecio" type="number" placeholder="$ Precio"></td>
                                     </tr>
                                 </tbody>
 
                             </table>
-                            <button>Calcular</button>
+                            <button id="CARGAR_DATOS">Cargar Datos</button>                            
                         </div>
                     </div>
                 </div>
-                <div class="muestraresultado">
-                    <div class="titleMejorProveedor">
-                        <h2>Mejor proveedor</h2>
+                <div class="faltaDeDatos">
+                    <div class="titleFaltaDeDatos">
+                        <h2>Falta de datos</h2>
                     </div>
-                    <div class="tarjetasResultado">
-                        <p>Tu mejor proveedor para el producto es: <br>
-                            .................
-                        </p>
+                    <div class="DatosDescartados">
+                        <ul class="ListaDeDescartados">
+
+                        </ul>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="resultados">
+            <div class="cargados">
+                <div class="titleProveedoresCargados">
+                    <h3>Proveedores Cargados</h3>
+                </div>
+                <div class="proveedoresCargados">
+                    <ul class="listaDeProveedores">
+                    </ul>
+                </div>
+                <div class="botones">
+                    <button id="BORRAR_PROVEEDORES">Borrar Proveedores</button>
+                    <button id="CALCULAR">Calcular Proveedor</button>
+                </div>
+            </div>
+            <div class="muestraresultado">
+                <div class="titleMejoresOpciones">
+                    <h2>Mejores Opciones</h2>
+                </div>
+                <div class="tarjetasResultado">
+                    <ul class="listaMejoresOpciones">
+
+                    </ul>
                 </div>
             </div>
         </div>

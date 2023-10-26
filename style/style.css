@@ -9,13 +9,19 @@ img {
   width: 100%;
 }
 
+li {
+  list-style-type: none;
+}
+
 main {
   background-color: #b5bfa1;
   display: flex;
 }
 main .menuLateral {
+  position: sticky;
+  top: 0pX;
   background-color: #143109;
-  width: 35%;
+  width: 30%;
   height: 100vh;
   padding: 10px;
   display: flex;
@@ -37,16 +43,16 @@ main .menuLateral .titlePrincipal h1 {
 }
 
 main .comparador {
-  width: 65%;
+  width: 35%;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 main .comparador .procesos {
+  margin-top: 75px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
 }
 main .comparador .procesos .ingresoDeDatos {
   display: flex;
@@ -59,7 +65,7 @@ main .comparador .procesos .ingresoDeDatos .primerDato {
   align-items: center;
   gap: 10px;
 }
-main .comparador .procesos .ingresoDeDatos .primerDato .titleProducto {
+main .comparador .procesos .ingresoDeDatos .primerDato .titleProveedor {
   width: 350px;
   background-color: #161616;
   padding: 5px;
@@ -67,12 +73,12 @@ main .comparador .procesos .ingresoDeDatos .primerDato .titleProducto {
   display: flex;
   justify-content: center;
 }
-main .comparador .procesos .ingresoDeDatos .primerDato .titleProducto h2 {
+main .comparador .procesos .ingresoDeDatos .primerDato .titleProveedor h2 {
   color: #ffffff;
   font-size: 1.5rem;
   font-weight: 500;
 }
-main .comparador .procesos .ingresoDeDatos .primerDato .ingresoDelProducto input {
+main .comparador .procesos .ingresoDeDatos .primerDato .ingresoDelProveedor input {
   width: 250px;
   background-color: #b5bfa1;
   border: 0px;
@@ -85,7 +91,7 @@ main .comparador .procesos .ingresoDeDatos .segundoDato {
   align-items: center;
   gap: 10px;
 }
-main .comparador .procesos .ingresoDeDatos .segundoDato .titleProveedores {
+main .comparador .procesos .ingresoDeDatos .segundoDato .titleProductos {
   width: 350px;
   background-color: #161616;
   padding: 5px;
@@ -94,62 +100,224 @@ main .comparador .procesos .ingresoDeDatos .segundoDato .titleProveedores {
   align-items: center;
   justify-content: space-between;
 }
-main .comparador .procesos .ingresoDeDatos .segundoDato .titleProveedores h2 {
+main .comparador .procesos .ingresoDeDatos .segundoDato .titleProductos h2 {
   color: #ffffff;
   font-size: 1.5rem;
   font-weight: 500;
 }
-main .comparador .procesos .ingresoDeDatos .segundoDato .titleProveedores button {
+main .comparador .procesos .ingresoDeDatos .segundoDato .titleProductos button {
   width: 30px;
   border-radius: 10px;
   margin-inline: 10px;
 }
-main .comparador .procesos .ingresoDeDatos .segundoDato .proveedorPrecio {
+main .comparador .procesos .ingresoDeDatos .segundoDato .productoPrecio {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
 }
-main .comparador .procesos .ingresoDeDatos .segundoDato .proveedorPrecio table thead {
+main .comparador .procesos .ingresoDeDatos .segundoDato .productoPrecio table thead {
   background-color: #143109;
   color: #ffffff;
 }
-main .comparador .procesos .ingresoDeDatos .segundoDato .proveedorPrecio table thead th {
+main .comparador .procesos .ingresoDeDatos .segundoDato .productoPrecio table thead th {
   border: 1px solid rgba(22, 22, 22, 0.568627451);
 }
-main .comparador .procesos .ingresoDeDatos .segundoDato .proveedorPrecio table tbody td {
-  border: rgba(22, 22, 22, 0.568627451) 1px solid;
+main .comparador .procesos .ingresoDeDatos .segundoDato .productoPrecio table tbody td input[type=number]::-webkit-inner-spin-button,
+main .comparador .procesos .ingresoDeDatos .segundoDato .productoPrecio table tbody td input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
-main .comparador .procesos .ingresoDeDatos .segundoDato .proveedorPrecio button {
+main .comparador .procesos .ingresoDeDatos .segundoDato .productoPrecio table tbody td input[type=number] {
+  -moz-appearance: textfield;
+}
+main .comparador .procesos .ingresoDeDatos .segundoDato .productoPrecio #CARGAR_DATOS {
   border-radius: 10px;
   padding: 5px;
+  background-color: #143109;
+  color: #b5bfa1;
 }
-main .comparador .procesos .muestraresultado {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+main .comparador .procesos .faltaDeDatos {
+  border-radius: 15px;
+  background-color: #9da58c;
+  padding: 1rem;
 }
-main .comparador .procesos .muestraresultado .titleMejorProveedor {
+main .comparador .procesos .faltaDeDatos .titleFaltaDeDatos {
   width: 350px;
   background-color: #161616;
+  color: #ffffff;
   padding: 5px;
   border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-main .comparador .procesos .muestraresultado .titleMejorProveedor h2 {
+main .comparador .procesos .faltaDeDatos .titleFaltaDeDatos h2 {
   color: #ffffff;
   font-size: 1.5rem;
   font-weight: 500;
 }
-main .comparador .procesos .muestraresultado .tarjetasResultado {
-  width: 250px;
-  background-color: #143109;
-  padding: 10px;
-  border-radius: 10px;
+main .comparador .procesos .faltaDeDatos .DatosDescartados {
+  min-height: 200px;
 }
-main .comparador .procesos .muestraresultado .tarjetasResultado p {
+main .comparador .procesos .faltaDeDatos .DatosDescartados .ListaDeDescartados li {
+  width: 300px;
+  margin-inline-start: 1rem;
+  padding: 5px;
+}
+main .comparador .procesos .faltaDeDatos .DatosDescartados .ListaDeDescartados li span {
+  font-weight: 600;
+}
+main .comparador .procesos .faltaDeDatos .DatosDescartados .ListaDeDescartados li:nth-child(1) {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+main .comparador .procesos .faltaDeDatos .DatosDescartados .ListaDeDescartados li:nth-child(odd) {
+  background-color: #e4d4d4;
+}
+main .comparador .procesos .faltaDeDatos .DatosDescartados .ListaDeDescartados li:nth-child(even) {
+  background-color: #d1bbbb;
+}
+main .comparador .procesos .faltaDeDatos .DatosDescartados .ListaDeDescartados li:nth-last-child(1) {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+main .resultados {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+main .resultados .cargados {
+  margin-top: 75px;
+  border-radius: 15px;
+  background-color: #82a576;
+  padding: 1rem;
+}
+main .resultados .cargados .titleProveedoresCargados {
+  width: 350px;
+  background-color: #161616;
   color: #ffffff;
+  padding: 5px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .resultados .cargados .titleProveedoresCargados h3 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+main .resultados .cargados .proveedoresCargados {
+  min-height: 170px;
+}
+main .resultados .cargados .proveedoresCargados .listaDeProveedores li {
+  width: 300px;
+  margin-inline-start: 1rem;
+  padding: 5px;
+}
+main .resultados .cargados .proveedoresCargados .listaDeProveedores li span {
+  font-weight: 600;
+}
+main .resultados .cargados .proveedoresCargados .listaDeProveedores li:nth-child(1) {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+main .resultados .cargados .proveedoresCargados .listaDeProveedores li:nth-child(odd) {
+  background-color: #a0bd95;
+}
+main .resultados .cargados .proveedoresCargados .listaDeProveedores li:nth-child(even) {
+  background-color: #88a17e;
+}
+main .resultados .cargados .proveedoresCargados .listaDeProveedores li:nth-last-child(1) {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+main .resultados .cargados .botones {
+  display: flex;
+  justify-content: space-around;
+}
+main .resultados .cargados .botones #BORRAR_PROVEEDORES {
+  border-radius: 10px;
+  padding: 5px;
+  background-color: #c5c5c5;
+}
+main .resultados .cargados .botones #BORRAR_PROVEEDORES:hover {
+  background-color: rgb(248, 46, 46);
+}
+main .resultados .cargados .botones #CALCULAR {
+  border-radius: 10px;
+  padding: 5px;
+  background-color: #c5c5c5;
+}
+main .resultados .muestraresultado {
+  background-color: #82a576;
+  border-radius: 15px;
+  padding: 1rem;
+}
+main .resultados .muestraresultado .titleMejoresOpciones {
+  width: 350px;
+  background-color: #161616;
+  color: #ffffff;
+  padding: 5px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .resultados .muestraresultado .titleMejoresOpciones h2 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+main .resultados .muestraresultado .tarjetasResultado .listaMejoresOpciones {
+  min-height: 200px;
+}
+main .resultados .muestraresultado .tarjetasResultado .listaMejoresOpciones li {
+  width: 300px;
+  margin-inline-start: 1rem;
+  padding: 5px;
+}
+main .resultados .muestraresultado .tarjetasResultado .listaMejoresOpciones li span {
+  font-weight: 600;
+}
+main .resultados .muestraresultado .tarjetasResultado .listaMejoresOpciones li:nth-child(1) {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+main .resultados .muestraresultado .tarjetasResultado .listaMejoresOpciones li:nth-child(odd) {
+  background-color: #92a58c;
+}
+main .resultados .muestraresultado .tarjetasResultado .listaMejoresOpciones li:nth-child(even) {
+  background-color: #688160;
+}
+main .resultados .muestraresultado .tarjetasResultado .listaMejoresOpciones li:nth-last-child(1) {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.alerta {
+  display: flex;
+  position: absolute;
+  background-color: rgb(238, 143, 143);
+  color: rgb(68, 5, 5);
+  border-radius: 15px;
+  border: solid red 1px;
+  width: 175px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 400;
+}
+.alerta #cruz1, .alerta #cruz2 {
+  width: 20px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.rellenar {
+  background-color: rgb(233, 120, 120);
 }/*# sourceMappingURL=style.css.map */

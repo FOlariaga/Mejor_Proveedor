@@ -3,8 +3,10 @@ main {
     display: flex;
 
     .menuLateral {
+        position: sticky;
+        top: 0pX;
         background-color: #143109;
-        width: 35%;
+        width: 30%;
         height: 100vh;
         padding: 10px;
         display: flex;
