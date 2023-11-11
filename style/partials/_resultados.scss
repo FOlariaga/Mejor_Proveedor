@@ -6,113 +6,25 @@ main {
         align-items: center;
         gap: 20px;
 
-        .cargados{
-            margin-top: 75px;
-            border-radius: 15px;
-            background-color: #82a576;
-            padding: 1rem;
-
-            .titleProveedoresCargados{
-                width: 350px;
-                background-color: #161616;
-                color: #ffffff;
-                padding: 5px;
-                border-radius: 30px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                h3{
-                    color: #ffffff;
-                    font-size: 1.5rem;
-                    font-weight: 500;
-                }
-            }
-
-            .proveedoresCargados{
-                min-height: 170px;
-
-
-                .listaDeProveedores{
-                    
-
-                    li{
-                        width: 300px;
-                        margin-inline-start: 1rem;
-                        padding: 5px;
-
-                        span{
-                            font-weight: 600;
-                        }
-                    }
-                    li:nth-child(1){
-                        border-top-right-radius: 10px;
-                        border-top-left-radius: 10px;
-                    }
-                    li:nth-child(odd){
-                        background-color: #a0bd95;
-                    }
-                    li:nth-child(even){
-                        background-color: #88a17e;
-                    }
-                    li:nth-last-child(1){
-                        border-bottom-left-radius: 10px;
-                        border-bottom-right-radius: 10px;
-                    }
-                }
-            }
-            .botones{
-                display: flex;
-                justify-content: space-around;
-
-                #BORRAR_PROVEEDORES{
-                    border-radius: 10px;
-                    padding: 5px;
-                    background-color: #c5c5c5;
-                    
-                }
-                #BORRAR_PROVEEDORES:hover{
-                    background-color: rgb(248, 46, 46);
-                }
-                #CALCULAR{
-                    border-radius: 10px;
-                    padding: 5px;
-                    background-color: #c5c5c5;
-                }
-            }
-        }
-
-        .muestraresultado {
+        #muestraresultado {
+            margin-top: 50px;
             background-color: #82a576;
             border-radius: 15px;
             padding: 1rem;
 
-            .titleMejoresOpciones {
-                width: 350px;
-                background-color: #161616;
-                color: #ffffff;
-                padding: 5px;
-                border-radius: 30px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                h2 {
-                    color: #ffffff;
-                    font-size: 1.5rem;
-                    font-weight: 500;
-                }
-            }
+            .titleMejoresOpciones {}
 
             .tarjetasResultado {
 
-                .listaMejoresOpciones{
+                .listaMejoresOpciones {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
                     min-height: 200px;
 
                     li {
-                        
+
                         width: 300px;
-                        margin-inline-start: 1rem;
                         padding: 5px;
 
 
@@ -120,22 +32,88 @@ main {
                             font-weight: 600;
                         }
                     }
-                    li:nth-child(1){
+
+                    li:nth-child(1) {
                         border-top-right-radius: 10px;
                         border-top-left-radius: 10px;
                     }
-                    li:nth-child(odd){
+
+                    li:nth-child(odd) {
                         background-color: #92a58c;
                     }
-                    li:nth-child(even){
+
+                    li:nth-child(even) {
                         background-color: #688160;
                     }
-                    li:nth-last-child(1){
+
+                    li:nth-last-child(1) {
                         border-bottom-left-radius: 10px;
                         border-bottom-right-radius: 10px;
                     }
                 }
             }
         }
+
+        .faltaDeDatos {
+            border-radius: 15px;
+            background-color: #9da58c;
+            padding: 1rem;
+
+            .titleFaltaDeDatos {}
+
+            .DatosDescartados {
+                min-height: 200px;
+
+                .ListaDeDescartados {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    li {
+                        width: 300px;
+                        padding: 5px;
+
+                        span {
+                            font-weight: 600;
+                        }
+                    }
+
+                    li:nth-child(1) {
+                        border-top-right-radius: 10px;
+                        border-top-left-radius: 10px;
+                    }
+
+                    li:nth-child(odd) {
+                        background-color: #e4d4d4;
+                    }
+
+                    li:nth-child(even) {
+                        background-color: #d1bbbb;
+                    }
+
+                    li:nth-last-child(1) {
+                        border-bottom-left-radius: 10px;
+                        border-bottom-right-radius: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.titulo {
+    width: 350px;
+    background-color: #161616;
+    color: #ffffff;
+    padding: 5px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h2 {
+        color: #ffffff;
+        font-size: 1.5rem;
+        font-weight: 500;
     }
 }

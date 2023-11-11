@@ -1,5 +1,11 @@
 @import "./partials/reset";
+@import "./partials/variables";
+
 @import "./partials/menuLateral";
 @import "./partials/comparador";
 @import "./partials/resultados";
 @import "./partials/alertas";
+
+@import "./partials/menuLateral_mediaQuery";
+@import "./partials/comparador_mediaQuery";
+@import "./partials/resultados_mediaQuery";

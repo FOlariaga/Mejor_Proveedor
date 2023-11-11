@@ -3,180 +3,165 @@ main {
     .comparador {
         width: 35%;
         display: flex;
-        justify-content: center;
-
-
-        .procesos {
-            margin-top: 75px;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        
+        .ingresoDeDatos {
+            margin-top: 50px;
             display: flex;
             flex-direction: column;
-            align-items: center;
             gap: 20px;
 
-            .ingresoDeDatos {
+            .primerDato {
                 display: flex;
                 flex-direction: column;
-                gap: 20px;
+                align-items: center;
+                gap: 10px;
 
-                .primerDato {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 10px;
-
-                    .titleProveedor {
-                        width: 350px;
-                        background-color: #161616;
-                        padding: 5px;
-                        border-radius: 30px;
-                        display: flex;
-                        justify-content: center;
-
-                        h2 {
-                            color: #ffffff;
-                            font-size: 1.5rem;
-                            font-weight: 500;
-                        }
-                    }
-
-                    .ingresoDelProveedor {
-
-                        input {
-                            width: 250px;
-                            background-color: #b5bfa1;
-                            border: 0px;
-                            border-bottom: 3px #161616 solid;
-                            text-align: center;
-
-                        }
-                    }
+                .titleProveedor {
                 }
 
-                .segundoDato {
+                .ingresoDelProveedor {
+
+                    input {
+                        width: 250px;
+                        background-color: #b5bfa1;
+                        border: 0px;
+                        border-bottom: 3px #161616 solid;
+                        text-align: center;
+
+                    }
+                }
+            }
+
+            .segundoDato {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+
+                .titleProductos {
+
+                    button {
+                        width: 30px;
+                        border-radius: 10px;
+                        margin-inline: 10px;
+                    }
+
+                }
+
+                .productoPrecio {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    gap: 10px;
+                    gap: 1rem;
 
-                    .titleProductos {
-                        width: 350px;
-                        background-color: #161616;
-                        padding: 5px;
-                        border-radius: 30px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-
-                        h2 {
-                            color: #ffffff;
-                            font-size: 1.5rem;
-                            font-weight: 500;
-                        }
-
-                        button {
-                            width: 30px;
-                            border-radius: 10px;
-                            margin-inline: 10px;
-                        }
-
-                    }
-
-                    .productoPrecio {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        gap: 1rem;
-
-                        table {
-                            thead {
-                                background-color: #143109;
-                                color: #ffffff;
-
-                                th {
-                                    border: 1px solid #16161691;
-                                }
-                            }
-
-                            tbody {
-                                td {
-
-                                    input[type=number]::-webkit-inner-spin-button,
-                                    input[type=number]::-webkit-outer-spin-button {
-                                        -webkit-appearance: none;
-                                        margin: 0;
-                                    }
-
-                                    input[type=number] {
-                                        -moz-appearance: textfield;
-                                    }
-                                }
-                            }
-                        }
-
-                        #CARGAR_DATOS {
-                            border-radius: 10px;
-                            padding: 5px;
+                    table {
+                        thead {
                             background-color: #143109;
-                            color: #b5bfa1;
-                        }
-                    }
-                }
+                            color: #ffffff;
 
-            }
-
-            .faltaDeDatos {
-                border-radius: 15px;
-                background-color: #9da58c;
-                padding: 1rem;
-
-                .titleFaltaDeDatos {
-                    width: 350px;
-                    background-color: #161616;
-                    color: #ffffff;
-                    padding: 5px;
-                    border-radius: 30px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-
-                    h2 {
-                        color: #ffffff;
-                        font-size: 1.5rem;
-                        font-weight: 500;
-                    }
-                }
-
-                .DatosDescartados {
-                    min-height: 200px;
-
-                    .ListaDeDescartados {
-                        
-                        li {
-                            width: 300px;
-                            margin-inline-start: 1rem;
-                            padding: 5px;
-
-                            span {
-                                font-weight: 600;
+                            th {
+                                border: 1px solid #16161691;
                             }
                         }
-                        li:nth-child(1){
-                            border-top-right-radius: 10px;
-                            border-top-left-radius: 10px;
+
+                        tbody {
+                            td {
+
+                                input[type=number]::-webkit-inner-spin-button,
+                                input[type=number]::-webkit-outer-spin-button {
+                                    -webkit-appearance: none;
+                                    margin: 0;
+                                }
+
+                                input[type=number] {
+                                    -moz-appearance: textfield;
+                                }
+                            }
                         }
-                        li:nth-child(odd){
-                            background-color: #e4d4d4;
-                        }
-                        li:nth-child(even){
-                            background-color: #d1bbbb;
-                        }
-                        li:nth-last-child(1){
-                            border-bottom-left-radius: 10px;
-                            border-bottom-right-radius: 10px;
-                        }
+                    }
+
+                    #CARGAR_DATOS {
+                        border-radius: 10px;
+                        padding: 5px;
+                        background-color: #143109;
+                        color: #b5bfa1;
                     }
                 }
             }
+
+        }
+
+        .cargados {
+            border-radius: 15px;
+            background-color: #82a576;
+            padding: 1rem;
+
+            .titleProveedoresCargados {
+            }
+
+            .proveedoresCargados {
+                min-height: 170px;
+
+
+                .listaDeProveedores {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    li {
+                        width: 300px;
+                        padding: 5px;
+
+                        span {
+                            font-weight: 600;
+                        }
+                    }
+
+                    li:nth-child(1) {
+                        border-top-right-radius: 10px;
+                        border-top-left-radius: 10px;
+                    }
+
+                    li:nth-child(odd) {
+                        background-color: #a0bd95;
+                    }
+
+                    li:nth-child(even) {
+                        background-color: #88a17e;
+                    }
+
+                    li:nth-last-child(1) {
+                        border-bottom-left-radius: 10px;
+                        border-bottom-right-radius: 10px;
+                    }
+                }
+            }
+
+            .botones {
+                display: flex;
+                justify-content: space-around;
+
+                #BORRAR_PROVEEDORES {
+                    border-radius: 10px;
+                    padding: 5px;
+                    background-color: #c5c5c5;
+
+                }
+
+                #BORRAR_PROVEEDORES:hover {
+                    background-color: rgb(248, 46, 46);
+                }
+
+                #CALCULAR {
+                    border-radius: 10px;
+                    padding: 5px;
+                    background-color: #c5c5c5;
+                }
+            }
+
         }
     }
 }

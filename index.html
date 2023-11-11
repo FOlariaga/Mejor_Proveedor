@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mejor Proveedor</title>
-    <link rel="stylesheet" href="./style/style.css">
     <link rel="shortcut icon" href="./image/apreton_de_manos.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="./style/style.css">
 
 </head>
 
@@ -20,12 +21,13 @@
                 </h1>
                 <img src="./image/apreton_de_manos.png" alt="imagen de un apreton de manos">
             </div>
+            <div id="PUBLICIDAD">
+            </div>
         </div>
         <div class="comparador">
-            <div class="procesos">
                 <div class="ingresoDeDatos">
                     <div class="primerDato">
-                        <div class="titleProveedor">
+                        <div class="titleProveedor titulo">
                             <h2>Proveedor</h2>
                         </div>
                         <div class="ingresoDelProveedor">
@@ -34,7 +36,7 @@
                         </div>
                     </div>
                     <div class="segundoDato">
-                        <div class="titleProductos">
+                        <div class="titleProductos titulo">
                             <button id="ELIMINAR_PRODUCTO">-</button>
                             <h2>Productos</h2>
                             <button id="AGREGAR_PRODUCTO">+</button>
@@ -67,38 +69,37 @@
                         </div>
                     </div>
                 </div>
-                <div class="faltaDeDatos">
-                    <div class="titleFaltaDeDatos">
-                        <h2>Falta de datos</h2>
+                <div class="cargados">
+                    <div class="titleProveedoresCargados titulo">
+                        <h2>Proveedores Cargados</h2>
                     </div>
-                    <div class="DatosDescartados">
-                        <ul class="ListaDeDescartados">
-
+                    <div class="proveedoresCargados">
+                        <ul class="listaDeProveedores">
                         </ul>
                     </div>
+                    <div class="botones">
+                        <button id="BORRAR_PROVEEDORES">Borrar Proveedores</button>
+                        <button id="CALCULAR"><a href="#muestraresultado">Calcular Proveedor</a></button>
+                    </div>
                 </div>
-            </div>
         </div>
         <div class="resultados">
-            <div class="cargados">
-                <div class="titleProveedoresCargados">
-                    <h3>Proveedores Cargados</h3>
-                </div>
-                <div class="proveedoresCargados">
-                    <ul class="listaDeProveedores">
-                    </ul>
-                </div>
-                <div class="botones">
-                    <button id="BORRAR_PROVEEDORES">Borrar Proveedores</button>
-                    <button id="CALCULAR">Calcular Proveedor</button>
-                </div>
-            </div>
-            <div class="muestraresultado">
-                <div class="titleMejoresOpciones">
-                    <h2>Mejores Opciones</h2>
+            <div id="muestraresultado">
+                <div class="titleMejoresOpciones titulo">
+                    <h2 id="MEJORES_OPCIONES">Mejores Opciones</h2>
                 </div>
                 <div class="tarjetasResultado">
                     <ul class="listaMejoresOpciones">
+
+                    </ul>
+                </div>
+            </div>
+            <div class="faltaDeDatos">
+                <div class="titleFaltaDeDatos titulo">
+                    <h2>Falta de datos</h2>
+                </div>
+                <div class="DatosDescartados">
+                    <ul class="ListaDeDescartados">
 
                     </ul>
                 </div>
@@ -107,6 +108,7 @@
     </main>
 
     <script src="script/main.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 
 </html>

@@ -9,3 +9,5 @@ Una vez terminada todas las comparaciones y teniendo un array con todos los prod
 
 En simultaneo se verifico si algun producto carece de datos (nombre o precio)
 para ser agregado a otra lista y mostrar al usuario que uno de los productos no se a tenido en consideracion en dicha comparacion.
+
+A su vez tiene un simulado de publicidad en la cual los datos son recibidos de un archivo JSON extraidos y reflejados en pantalla uno a uno cada determinado tiempo.

@@ -1,0 +1,61 @@
+[
+    {"id":"OFERTA_1", 
+    "proveedor":"Paul Mac Carne",
+    "producto":"Mortadela paladini", 
+    "precio": 1300, 
+    "info": "Mortadela Paladini x 500gr"},
+
+    {"id":"OFERTA_2", 
+    "proveedor":"Bread Pitt",              
+    "producto":"Docena de media lunas", 
+    "precio": 3120, 
+    "info": "Media lunas a eleccion"},
+
+    {"id":"OFERTA_3", 
+    "proveedor":"Kevin Bacon",            
+    "producto":"Hamburguesa doble", 
+    "precio": 2650, 
+    "info": "doble carne, doble queso y bacon "},
+
+    {"id":"OFERTA_4", 
+    "proveedor":"El señor de los novillos",  
+    "producto":"Ovillos de lana", 
+    "precio": 500, 
+    "info": "100mts de ovillos de colores"},
+
+    {"id":"OFERTA_5", 
+    "proveedor":"Jhon Lemon - verduleria",   
+    "producto":"Limones Gambin 1kg", 
+    "precio": 475, 
+    "info": "Limones de origen local"},
+    
+    {"id":"OFERTA_6", 
+    "proveedor":"Miel Gibson",   
+    "producto":"Miel pura", 
+    "precio": 2550, 
+    "info": "Miel Pura De Abejas 1kg"},
+
+    {"id":"OFERTA_7", 
+    "proveedor":"Breakin Beer",   
+    "producto":"Cerveza Schneider ", 
+    "precio":  522, 
+    "info": "Cerveza Lata 473 Cc Schneider"},
+
+    {"id":"OFERTA_8", 
+    "proveedor":"AlPanchino",   
+    "producto":"Panchos 2x1", 
+    "precio": 1100, 
+    "info": "Panchos completos con lluvia de papas"},
+
+    {"id":"OFERTA_9", 
+    "proveedor":"Vegan Fox",   
+    "producto":"Leche de almendras", 
+    "precio": 2125, 
+    "info": "no utiliza ningun tipo de endulzantes "},
+
+    {"id":"OFERTA_10", 
+    "proveedor":"Gym Morrison",   
+    "producto":"Creatina", 
+    "precio": 12215, 
+    "info": "proteínas, vitaminas y minerales"}
+]

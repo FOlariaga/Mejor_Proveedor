@@ -13,6 +13,7 @@ main {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        overflow: hidden;
 
         .titlePrincipal {
             width: 90%;
@@ -25,6 +26,43 @@ main {
                 color: #ffffff;
                 font-size: 3rem;
                 text-align: center;
+            }
+            img{
+                width: 100%;
+            }
+        }
+
+        #PUBLICIDAD {
+            margin-top: 10px;
+            .mostrarPublicidad {
+                width: 320px;
+                background-color: #c4f2a4;
+                padding: 10px 15px;
+                border-radius: 10px;
+            
+                h2 {
+
+                }
+
+                p { 
+                    font-weight: 600;
+                    font-size: 1.2rem;
+
+                    .precioPublicidad{
+                    font-weight: 700;
+                    }
+
+                    .infoPublicidad {
+                        font-weight: 300;
+                        font-size: 1rem;
+                        color: rgb(41, 41, 41);
+                    }
+                }
+            }
+
+            .ocultarPublicidad{
+                visibility: collapse;
+                height: 0px;
             }
         }
     }

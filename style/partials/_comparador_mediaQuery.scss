@@ -1,0 +1,57 @@
+@media screen and (max-width: 1130px) {
+    main {
+
+        .comparador {
+            width: 100%;
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: space-around;
+
+            .ingresoDeDatos {
+                margin-top: 25px;
+                padding-inline: 15px;
+            }
+
+            .cargados {
+                display: flex;
+                flex-direction: column;
+
+                .proveedoresCargados {
+                    flex: 1;
+                    min-height: 160px;
+
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    main {
+        overflow: hidden;
+
+        .comparador {
+            margin-top: 1rem;
+            width: 100%;
+            flex-direction: column-reverse;
+            align-items: center;
+            justify-content: space-around;
+
+            .cargados {
+                display: flex;
+                flex-direction: column;
+
+                .titleProveedoresCargados {
+                }
+
+                .proveedoresCargados {
+                    flex: 1;
+                    min-height: 160px;
+
+                    .listaDeProveedores {
+                    }
+                }
+            }
+        }
+    }
+}

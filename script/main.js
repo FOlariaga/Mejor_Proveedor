@@ -45,18 +45,18 @@ const LIMPIAR_RESULTADOS = () => {
 }
 
 //agrega a la lista "falta de datos" un mensaje de que falta el nombre en uno de los productos
-const PRODUCTO_SIN_NOMBRE = (e) =>{
+const PRODUCTO_SIN_NOMBRE = (e) => {
     let li = document.createElement("li")
     let faltaDeDatos = document.querySelector(".ListaDeDescartados")
-    li.innerHTML = `se agrego un producto sin nombre para el proveedor "<span>${e.proveedor}</span>"`
+    li.innerHTML = `Producto sin nombre del proveedor "<span>${e.proveedor}</span>"`
     faltaDeDatos.append(li)
 }
 
 //agrega a la lista "falta de datos" un mensaje de que uno de los productos no tiene un precio definido
-const PRODUCTO_SIN_PRECIO = (e) =>{
+const PRODUCTO_SIN_PRECIO = (e) => {
     let li = document.createElement("li")
     let faltaDeDatos = document.querySelector(".ListaDeDescartados")
-    li.innerHTML = `El producto "<span>${e.nombre}</span>" del proveedor "<span>${e.proveedor}</span>" no tiene un precio definido`
+    li.innerHTML = `El producto "<span>${e.nombre}</span>" de "<span>${e.proveedor}</span>" no tiene un precio definido`
     faltaDeDatos.append(li)
 }
 
@@ -64,7 +64,7 @@ const PRODUCTO_SIN_PRECIO = (e) =>{
 const MOSTRAR_RESULTADOS = (e) => {
     let li = document.createElement("li")
     let mejoresOpciones = document.querySelector(".listaMejoresOpciones")
-    li.innerHTML = `El producto "<span>${e.nombre}</span>" lo tiene mas barato el proveedor "<span>${e.proveedor}</span>" a un precio de "$<span>${e.precio}</span>"`
+    li.innerHTML = `El producto "<span>${e.nombre}</span>" se recomienda a "<span>${e.proveedor}</span>" a un precio de "$<span>${e.precio}</span>"`
     mejoresOpciones.append(li)
 }
 
@@ -75,7 +75,7 @@ const LISTAR_RESULTADOS = (array) => {
             PRODUCTO_SIN_NOMBRE(array[i])
         } else if (array[i].precio == null) {
             PRODUCTO_SIN_PRECIO(array[i])
-        } else{
+        } else {
             MOSTRAR_RESULTADOS(array[i])
         }
     }
@@ -171,6 +171,16 @@ CARGAR_DATOS.addEventListener("click", () => {
 
         //reseteo de la variable para evitar duplicados
         productos = []
+
+        Toastify({
+            text: "Datos cargados con exito!!",
+            duration: 3000,
+            position: "right",
+            gravity: "top",
+            style: {
+                background: 'linear-gradient(to right, #0DD66F, #08B680)'
+            }
+        }).showToast();
     }
 })
 
@@ -178,6 +188,16 @@ CARGAR_DATOS.addEventListener("click", () => {
 const BORRAR_PROVEEDORES = document.getElementById("BORRAR_PROVEEDORES")
 BORRAR_PROVEEDORES.addEventListener("click", () => {
     VACIAR_LI()
+    Toastify({
+        text: "Datos eliminados!!!",
+        duration: 3000,
+        position: "right",
+        gravity: "top",
+        style: {
+            background: 'linear-gradient(to right, #FF1F1F, #FF5353)'
+        }
+    }).showToast();
+
 })
 
 
@@ -186,6 +206,16 @@ let mejorProveedor = [{ nombre: "" }]
 let productoIncompleto = []
 const CALCULAR = document.getElementById("CALCULAR")
 CALCULAR.addEventListener("click", () => {
+    Toastify({
+        text: "Resultados listos!!",
+        duration: 3000,
+        position: "right",
+        gravity: "top",
+        style: {
+            background: 'linear-gradient(to right, #0DD66F, #08B680)'
+        }
+
+    }).showToast();
 
     LIMPIAR_RESULTADOS()
 
@@ -201,7 +231,7 @@ CALCULAR.addEventListener("click", () => {
 
         //recorrer los elementos extraidos del lcalStorage
         for (let obj = 0; obj < productoRecuperado.length; obj++) {
-            
+
             //recorrer la variable que almacena las "mejores opciones" para poder comparar con lo extraido del localStrage
             for (let i = 0; i < mejorProveedor.length; i++) {
                 let nombre1 = mejorProveedor[i].nombre
@@ -215,7 +245,7 @@ CALCULAR.addEventListener("click", () => {
                     productoIncompleto.push(productoRecuperado[obj])
                     break;
 
-                //verificar si es el ultimo producto del array "mejorProveedor" para pushear si no hay coincidencia
+                    //verificar si es el ultimo producto del array "mejorProveedor" para pushear si no hay coincidencia
                 } else if (mejorProveedor.length - 1 === i) {
 
                     //verificar si es el mismo producto
@@ -258,8 +288,55 @@ CALCULAR.addEventListener("click", () => {
         }
     }
     mejorProveedor.shift()
-    
+
     //reflejar resultados en el dom con llamado a las funciones
-        LISTAR_RESULTADOS(productoIncompleto)
-        LISTAR_RESULTADOS(mejorProveedor)
+    LISTAR_RESULTADOS(productoIncompleto)
+    LISTAR_RESULTADOS(mejorProveedor)
 })
+
+//--------------------------------------------------------------------------------------------------------------------------
+const datoExterno = fetch("./script/ofertaPromocionada.json")
+    .then(res => res.json())
+    .then(data => {
+        cargarPublicidad(data)
+        return data
+    })
+//--------------------------------------------------------------------------------------------------------------------------
+function cargarPublicidad(data) {
+    data.forEach(item => {
+
+        const div = document.createElement('div')
+        const PUBLICIDAD = document.querySelector("#PUBLICIDAD")
+        item.id == "OFERTA_1" ? div.className = "mostrarPublicidad" : div.className = "ocultarPublicidad"
+        div.id = `${item.id}`
+        div.innerHTML = `
+        <h2> ${item.proveedor}</h2>   
+        <p>${item.producto} <span class="precioPublicidad">$${item.precio}</span><br>
+            <span class="infoPublicidad">${item.info}</span></p>`
+        PUBLICIDAD.append(div)
+    });
+}
+//--------------------------------------------------------------------------------------------------------------------------
+async function cambiarPublicidad() {
+    let data = await datoExterno
+    let contador = 1
+    setInterval(() => {
+        let publicidadVisible = document.getElementById(`OFERTA_${contador}`)
+        let publicidadOculta = document.getElementById(`OFERTA_${contador - 1}`)
+
+        if (contador == 1) {
+            publicidadOculta = document.getElementById(`OFERTA_${data.length}`)
+        }
+        publicidadVisible.className = "mostrarPublicidad"
+        publicidadOculta.className = "ocultarPublicidad"
+
+        contador = contador + 1
+
+        if (contador > data.length) {
+            contador = 1
+        }
+    }, 4000);
+}
+
+cambiarPublicidad()
+//--------------------------------------------------------------------------------------------------------------------------
