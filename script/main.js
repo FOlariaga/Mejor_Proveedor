@@ -294,14 +294,14 @@ CALCULAR.addEventListener("click", () => {
     LISTAR_RESULTADOS(mejorProveedor)
 })
 
-//--------------------------------------------------------------------------------------------------------------------------
+//se extraen datos de un archivo JSON almacenando en una constante y ejecutando una funcion que refleja los datos extraidos en el dom
 const datoExterno = fetch("./script/ofertaPromocionada.json")
     .then(res => res.json())
     .then(data => {
         cargarPublicidad(data)
         return data
     })
-//--------------------------------------------------------------------------------------------------------------------------
+//esta funcion se encarga de relejar los datos extraidos del archivo JSON a modo de publicidad
 function cargarPublicidad(data) {
     data.forEach(item => {
 
@@ -316,7 +316,7 @@ function cargarPublicidad(data) {
         PUBLICIDAD.append(div)
     });
 }
-//--------------------------------------------------------------------------------------------------------------------------
+// la funcion se encarga de mostrar una a una las publicidades una vez que sean mostradas en pantalla por medio de clases y editanto esas clases con CSS
 async function cambiarPublicidad() {
     let data = await datoExterno
     let contador = 1
@@ -338,5 +338,5 @@ async function cambiarPublicidad() {
     }, 4000);
 }
 
+// se ejecutara una vez que se reciban los datos que se esperan
 cambiarPublicidad()
-//--------------------------------------------------------------------------------------------------------------------------

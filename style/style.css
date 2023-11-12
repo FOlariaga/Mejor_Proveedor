@@ -349,6 +349,12 @@ main .resultados .faltaDeDatos .DatosDescartados .ListaDeDescartados li:nth-last
     margin: 0px 0.5rem;
   }
 }
+@media screen and (max-width: 400px) {
+  main .menuLateral {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+}
 @media screen and (max-width: 1130px) {
   main .comparador {
     width: 100%;
